@@ -1,3 +1,4 @@
+org: alkhutov
 app: aws-node-typeorm
 service: aws-node-typeorm
 
