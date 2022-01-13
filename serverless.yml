@@ -1,4 +1,4 @@
-org: alkhutov
+# org: alkhutov
 app: aws-node-typeorm
 service: aws-node-typeorm
 
@@ -20,31 +20,25 @@ provider:
 
 functions:
   base:
-    handler: src/handler.baseReq
+    handler: src/hello/handler.baseReq
     events:
       - http:
           path: /
           method: get
-  hello:
-    handler: src/handler.helloReq
-    events:
-      - http:
-          path: /hello
-          method: get
   createUser:
-    handler: src/handler.createUser
+    handler: src/user/handler.createUser
     events:
       - http:
           path: /user
           method: post
   getUsers:
-    handler: src/handler.getUsers
+    handler: src/user/handler.getUsers
     events:
       - http:
           path: /user
           method: get
   getUserById:
-    handler: src/handler.getUserById
+    handler: src/user/handler.getUserById
     events:
       - http:
           path: /user/{id}

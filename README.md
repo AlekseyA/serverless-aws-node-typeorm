@@ -20,10 +20,18 @@ This template demonstrates how to deploy a NodeJS function running on AWS Lambda
 
 ### Deployment
 
-In order to deploy the example, you need to run the following command:
+Before deployment you need to:
+  - configure AWS profile on you PC. To do this you need to put your AWS credentials into home/user/.aws/credentials  similar to:
+
+      [profileName]
+      aws_access_key_id = 
+      aws_secret_access_key = 
+  
+
+In order to deploy the project, you need to run the following command:
 
 ```
-$ serverless deploy
+$ serverless deploy --aws-profile profileName
 ```
 
 After running deploy, you should see output similar to:
@@ -88,3 +96,16 @@ Which should result in response similar to the following:
     "body": "{\n  \"message\": \"Go Serverless v2.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
 }
 ```
+
+
+
+Serverless offline project installed in the project, that give you ability to run project localy.
+
+Before running project you need to configure db connection by inserting constants in .env file as in .env_sample
+
+You can run project by using following command: 
+
+```bash
+serverless offline
+```
+After that all project endpoints will be available at http://localhost:3000/dev/*endpoint*
