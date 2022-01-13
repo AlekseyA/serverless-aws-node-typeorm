@@ -1,0 +1,10 @@
+.serverless/
+.idea/
+.build/
+.vscode/
+.env
+node_modules/
+build/
+tmp/
+temp/
+build/

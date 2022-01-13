@@ -1,0 +1,50 @@
+app: aws-node-typeorm
+service: aws-node-typeorm
+
+frameworkVersion: '2 || 3'
+
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+  - serverless-dotenv-plugin
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 128
+  lambdaHashingVersion: '20201221'
+  stage: dev
+
+functions:
+  base:
+    handler: src/handler.baseReq
+    events:
+      - http:
+          path: /
+          method: get
+  hello:
+    handler: src/handler.helloReq
+    events:
+      - http:
+          path: /hello
+          method: get
+  createUser:
+    handler: src/handler.createUser
+    events:
+      - http:
+          path: /user
+          method: post
+  getUsers:
+    handler: src/handler.getUsers
+    events:
+      - http:
+          path: /user
+          method: get
+  getUserById:
+    handler: src/handler.getUserById
+    events:
+      - http:
+          path: /user/{id}
+          method: get
